@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -344,6 +345,11 @@ namespace CPSC_Mod_Manager
         {
             mods[checkedListBox1.SelectedIndex].ModDescription = ModDescriptionBox.Text.Replace("\n", "<newline>");
             WriteNewModInfoTxt(mods[checkedListBox1.SelectedIndex]);
+        }
+
+        private void OpenDir_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", @Path.GetDirectoryName(Application.ExecutablePath));
         }
     }
 }
